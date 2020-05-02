@@ -1,4 +1,4 @@
-model disease
+model disease_lockdown_failure
   Real T = 100; //Total population (100%)
   Real i(start=1/15000000*100); //all infected people (incl, recovered, sick and dead) (initially 1)
   Real s;          //Sick people
@@ -34,4 +34,4 @@ equation
   
   der(r)=b*s;
   der(d)=c*s;
-end disease;
+end disease_lockdown_failure;

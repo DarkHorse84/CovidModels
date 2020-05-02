@@ -1,0 +1,1 @@
+C:\OpenModelica1.13.264bit\share\omc\scripts\Compile.bat disease_lockdown_failure gcc mingw64 parallel 4 0

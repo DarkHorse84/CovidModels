@@ -1,0 +1,29 @@
+\section{The Models}
+
+We'll start with a very basic model. For the basics, we'll take a population and divide it into 4 parts, the yet to be infected (u), and three groups that represent those that have or have had the disease (the total of these three groups will be called the infected and be represented by i), the sick (s), the recovered (r) and the dead (d). Now it should be clear that if we take the uninfected and add the sick, the recovered and the dead we'll get the total number of people in our population (T) which is all the people that will ever get infected, or as an equation \(T=u+s+d+r=u+i\). The number of people that are currently sick can be found by taking the total infected and subtracted the recovered and the dead, or \(s = i-r-d\). This model deals with how people move from one group into the other, so lets start with people getting infected. Consider that for every interaction between an infected and an uninfected person, there is a probability that the uninfected person will become infected. This can be modeled using the logistic model: 
+ \[
+\dot{i}=a\times i\times u=a\times i\times (T-i)
+\]
+The rate of change of infections (\(\frac{di}{dt}\)) is zero when there are no infections (\(i=0\)) or when there are no healthy people (\(u=0\)) and reaches a maximum when the number of infected people is half the total number of people or when \(i = \frac{T}{2}\). The multiple a is a constant of proportionality. The dot above the i means the rate of change, so \(\dot{i}\) can be read as 'the rate of change of i'. There will also be people recovering from the illness and people dying. in both cases the rate of change of these values is proportional to the number of people that are currently sick:
+\[
+\begin{split}
+\dot{r} &= b\times s\\
+\dot{d} &= c\times s
+\end{split}
+\]
+
+Like a, b and c are constants of proportionality. When trying to model a real system we would choose a,b and c so that our models match reality. If we know the values of those constants and the initial size of each group, we can solve these equations and get a mathematical picture of what is happening. If we assume that there is 1 infected person in a population of 15 million, no recovered or dead people and with \[
+\begin{split}
+a &= 0.02\\
+b &= 0.7\\
+c &= 0.015
+\end{split}
+\]
+the graphs look like the graph in figure \ref{fig:nolockdownnofailure}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{../Octave/no_lockdown_no_failure}
+	\caption[The Basic Model]{The Basic Model}
+	\label{fig:nolockdownnofailure}
+\end{figure}
+

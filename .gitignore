@@ -1,0 +1,8 @@
+*.exe
+*.aux
+*.log
+*.png
+*.xml
+*.json
+*.toc
+*.synctex.gz
