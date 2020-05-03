@@ -16,7 +16,7 @@ equation
   elseif time < 11 then
     a = 0.0005;
   else
-    a = 0.001;
+    a = 0.01;
   end if;
   
   b = b_base;

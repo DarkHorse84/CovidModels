@@ -15,10 +15,10 @@ plot(disease_no_failure_res(1,:),disease_no_failure_res(2,:), "linewidth", 1.5, 
 plot(disease_no_lockdown_res(1,:),disease_no_lockdown_res(2,:), "linewidth", 1.5, "color", "black")
 plot(disease_lockdown_failure_res(1,:),disease_lockdown_failure_res(2,:), "linewidth", 1.5, "color", "red")
 plot(disease_no_failure_no_lockdown_res(1,:),disease_no_failure_no_lockdown_res(2,:), "linewidth", 1.5, "color", "green")
-h = legend("with lockdown, no healthcare failure", 
-            "no lockdown, health care failure", 
-            "with lockdown, health care failure", 
-            "no health care failure, no lockdown")
+h = legend("with lock down, no healthcare failure", 
+            "no lock down, health care failure", 
+            "with lock down, health care failure", 
+            "no health care failure, no lock down")
 xlabel('time')
 ylabel("Percentage of total population")
 print -dpng deaths.png
@@ -31,10 +31,10 @@ plot(disease_no_failure_res(1,:),disease_no_failure_res(4,:), "linewidth", 1.5, 
 plot(disease_no_lockdown_res(1,:),disease_no_lockdown_res(4,:), "linewidth", 1.5, "color", "black")
 plot(disease_lockdown_failure_res(1,:),disease_lockdown_failure_res(4,:), "linewidth", 1.5, "color", "red")
 plot(disease_no_failure_no_lockdown_res(1,:),disease_no_failure_no_lockdown_res(4,:), "linewidth", 1.5, "color", "green")
-h = legend("with lockdown, no healthcare failure", 
-            "no lockdown, health care failure", 
-            "with lockdown, health care failure", 
-            "no healthcare failure, no lockdown")
+h = legend("with lock down, no healthcare failure", 
+            "no lock down, health care failure", 
+            "with lock down, health care failure", 
+            "no lock down, no health care failure ")
 xlabel('time')
 ylabel("Percentage of total population")
 print -dpng sick.png
@@ -47,10 +47,10 @@ plot(disease_no_failure_res(1,:),disease_no_failure_res(3,:), "linewidth", 1.5, 
 plot(disease_no_lockdown_res(1,:),disease_no_lockdown_res(3,:), "linewidth", 1.5, "color", "black")
 plot(disease_lockdown_failure_res(1,:),disease_lockdown_failure_res(3,:), "linewidth", 1.5, "color", "red")
 plot(disease_no_failure_no_lockdown_res(1,:),disease_no_failure_no_lockdown_res(3,:), "linewidth", 1.5, "color", "green")
-h = legend("with lockdown, no healthcare failure", 
-            "no lockdown, health care failure", 
-            "with lockdown, health care failure", 
-            "no healthcare failure, no lockdown")
+h = legend("with lock down, no healthcare failure", 
+            "no lock down, health care failure", 
+            "with lock down, health care failure", 
+            "no lock down, no health care failure ")
 xlabel('time')
 ylabel("Percentage of total population")
 print -dpng infected.png
@@ -58,7 +58,7 @@ hold off
 
 figure 4
 hold on
-title("No lockdown, no health care failure")
+title("No lock down, no health care failure")
 plot(disease_no_failure_no_lockdown_res(1,:),disease_no_failure_no_lockdown_res(2,:), "linewidth", 1.5, "color", "blue")
 plot(disease_no_failure_no_lockdown_res(1,:),disease_no_failure_no_lockdown_res(3,:), "linewidth", 1.5, "color", "black")
 plot(disease_no_failure_no_lockdown_res(1,:),disease_no_failure_no_lockdown_res(4,:), "linewidth", 1.5, "color", "red")
