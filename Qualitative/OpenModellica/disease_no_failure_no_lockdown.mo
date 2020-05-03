@@ -16,7 +16,7 @@ equation
   b = b_base;
   c = c_base;
   T = s + u + d + r;
-  der(i) = a * i * (T - i);
+  der(i) = a * s * (u);
   s = i - r - d;
   der(r) = b * s;
   der(d) = c * s;

@@ -6,3 +6,4 @@
 *.json
 *.toc
 *.synctex.gz
+*.out

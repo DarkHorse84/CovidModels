@@ -1,10 +1,10 @@
 \section{The Models}
 
-We'll start with a very basic model. For the basics, we'll take a population and divide it into 4 parts, the yet to be infected (u), and three groups that represent those that have or have had the disease (the total of these three groups will be called the infected and be represented by i), the sick (s), the recovered (r) and the dead (d). Now it should be clear that if we take the uninfected and add the sick, the recovered and the dead we'll get the total number of people in our population (T) which is all the people that will ever get infected, or as an equation \(T=u+s+d+r=u+i\). The number of people that are currently sick can be found by taking the total infected and subtracted the recovered and the dead, or \(s = i-r-d\). This model deals with how people move from one group into the other, so lets start with people getting infected. Consider that for every interaction between an infected and an uninfected person, there is a probability that the uninfected person will become infected. This can be modeled using the logistic model: 
+We'll start with a very basic model. For the basics, we'll take a population and divide it into 4 parts, the yet to be infected (u), and three groups that represent those that have or have had the disease (the total of these three groups will be called the infected and be represented by i), the sick (s), the recovered (r) and the dead (d). Now it should be clear that if we take the uninfected and add the sick, the recovered and the dead, we'll get the total number of people in our population (T) which is all the people that will ever get infected, or as an equation \(T=u+s+d+r=u+i\). The number of people that are currently sick can be found by taking the total infected and subtracted the recovered and the dead, or \(s = i-r-d\). This model deals with how people move from one group into the other, so lets start with people getting infected. Consider that for every interaction between an actively infected (or sick) and an uninfected person, there is a probability that the uninfected person will become infected. This can be modeled using the logistic model: 
  \[
-\dot{i}=a\times i\times u=a\times i\times (T-i)
+\dot{i}=a\times i\times s
 \]
-The rate of change of infections (\(\frac{di}{dt}\)) is zero when there are no infections (\(i=0\)) or when there are no healthy people (\(u=0\)) and reaches a maximum when the number of infected people is half the total number of people or when \(i = \frac{T}{2}\). The multiple a is a constant of proportionality. The dot above the i means the rate of change, so \(\dot{i}\) can be read as 'the rate of change of i'. There will also be people recovering from the illness and people dying. in both cases the rate of change of these values is proportional to the number of people that are currently sick:
+The rate of change of infections (\(\dot{i}\)) is zero when there are no infections (\(i=0\)) or when there are no sick people (\(s=0\)) and reaches a maximum when the number of infected people is half the total number of people or when \(i = \frac{T}{2}\). The multiple \(a\) is a constant of proportionality. The dot above the i means the rate of change, so \(\dot{i}\) can be read as 'the rate of change of i'. There will also be people recovering from the illness and people dying. in both cases the rate of change of these values is proportional to the number of people that are currently sick:
 \[
 \begin{split}
 \dot{r} &= b\times s\\
@@ -26,14 +26,14 @@ the graphs look like the graph in figure \ref{fig:nolockdownnofailure}.
 	\caption[The Basic Model]{The Basic Model}
 	\label{fig:nolockdownnofailure}
 \end{figure}
-We'll use this to compare other models.
+We'll use this as a baseline to compare other models later.
 
-What happens if the health care system were to collapse. This can be modeled by increasing the death rate and decreasing the recovery rate if the number of sick people are above a certain number. Here if the number of sick people are over \(1\%\) of the population, the death rate doubles (people die at a faster rate) and the recovery rate becomes three quarters what it is if there is no collapse (people take longer to recover):
+What happens if the health care system were to become distressed? This can be modeled by increasing the death rate and decreasing the recovery rate if the number of sick people are above a certain number. Here if the number of sick people are over \(10\%\) of the population, the death rate doubles (people die at a faster rate) and the recovery rate becomes three quarters what it is if there is no distress (people take longer to recover):
 \[
 \begin{split}
 b &=
 	\begin{cases}
-		\frac{3}{4}\times 0.7 & \text{ if }  s > 1\\
+		\frac{3}{4}\times 0.7 & \text{ if }  s > 10\\
 		0.7 & \text{otherwise}
 	\end{cases}\\
 c &=
@@ -43,7 +43,7 @@ c &=
 	\end{cases}\\
 \end{split}
 \]
-In South Africa at the time of writing, the government has enforced a period of hard lock down (some have called this shelter in place and the unflattering, house arrest) and has then entered a period of lower restrictions. This phased release of lock down can be modeled by changing the infection rate in a similar way as the recovery and death rate. Here the recovery rate is initially high, drops during hard lock down and goes back up but not all the way to the original value when restrictions are lifted.
+In South Africa, at the time of writing, the government has enforced a period of hard lock down (some have called this shelter in place and the unflattering, house arrest) and has then entered a period of lower restrictions. This phased release of lock down can be modeled by changing the infection rate in a similar way as the recovery and death rate. Here the recovery rate is initially high, drops during hard lock down and goes back up but not all the way to the original value when restrictions are lifted.
 \[
 a = \begin{cases}
 0.02& \text{ if } t < 3 \text{ (the time before the initial lock down)}\\
@@ -51,3 +51,10 @@ a = \begin{cases}
 0.01& \text{ otherwise (lightly lifted restrictions)}
 \end{cases}
 \]
+These can be assembled into four different models that can be compared:
+\begin{itemize}
+	\item The basic model, with no lock down and no health care system distress.
+	\item The basic model, with lock down.
+	\item The basic model, with health care system distress.
+	\item The basic model, with lock down and health care system distress.
+\end{itemize}

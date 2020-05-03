@@ -22,7 +22,7 @@ equation
     b = b_base;
   end if;
   T = s + u + d + r;
-  der(i) = a * i * (T - i);
+  der(i) = a * u * (s);
   s = i - r - d;
   der(r) = b * s;
   der(d) = c * s;
