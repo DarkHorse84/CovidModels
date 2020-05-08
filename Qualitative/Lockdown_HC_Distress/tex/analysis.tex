@@ -1,0 +1,31 @@
+\section{Analysis}
+\subsection{Total Infection and Active Infection Comparison}
+Let's start comparing the impact that that lock down and health care system distress has on overall infections rates.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{../Octave/infected}
+	\caption[Total Infections For All Models]{Total Infections For All Models}
+	\label{fig:infected}
+\end{figure}
+Figure \ref{fig:infected} shows the total number of infections at any time for the four different models. Unsurprisingly, the infection rate is sensitive (depends on) both whether or not a lock down is present and if the health care systems experience distress or not. It can be seen that while it is better preserve the health care system than to let it collapse, lock down is far more effective at reducing overall infection rates.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{../Octave/sick}
+	\caption[Active Infections (Currently Sick) For All Models]{Active Infections (Currently Sick) For All Models}
+	\label{fig:sick}
+\end{figure}
+Figure \ref{fig:sick} shows how many people are actively infected (or sick) at any given time. Here, it's clear that the number of people that are sick is sensitive to both the lock down and health care system distress, however lock down dominates. The reason for this is that, initially, the rate of people getting ill is higher than the rate of people dying or recovering. Lock down reduces this rate, if the goal is to reduce the peak number of sick people, then a lock down is clearly a successful strategy (this could be replaced with voluntary measures but that comparison will not be made here).
+
+\subsection{Total Death Comparison}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{../Octave/deaths}
+	\caption[Deaths For All Models]{Deaths For All Models}
+	\label{fig:deaths}
+\end{figure}
+The death rate tells a different story. When health care systems are distressed, the death rate is far higher than if there is no distress, however lock down still reduces the number of deaths.
+\subsection{The Hidden Feature}
+There is a hidden feature not implicitly modeled. The rate of change of active infections is \[
+\dot{s}=(a\times u-c-b)\times s
+\]
+As the number of sick people is always positive, if \(c+b\geq a\times u\) then the number of sick people will decrease. This can reduce the rate of new infections during a lock down and can also lead to the scenario where there are uninfected people in the population but not enough sick people to infect them (the disease burns itself out). This feature helps the success of lock downs. It provides an early boost to the number of people that have recovered, reducing the rate of infection later on. Reducing the infection rate reduces the total count of infections, which in turn reduces the total death count. Also, as lock downs reduce the peak number of active infections, if successful enough, they can keep the number of active infections below the threshold that causes the health care system distress.
