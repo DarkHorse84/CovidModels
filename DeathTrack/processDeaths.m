@@ -14,7 +14,7 @@ WC = 11;
 UNKNOWN = 12;
 total = 13;
 [deaths lastUpdate] = getDeaths("https://raw.githubusercontent.com/dsfsi/covid19za/master/data/covid19za_provincial_cumulative_timeline_deaths.csv", total);
-#11 june 1284
+
 lambda = [];
 doublingTime = [];
 fourtyKTime = [];
@@ -29,11 +29,14 @@ for i = 30:length(deaths)
 endfor
 figure ();
 plot(deaths);
+grid on;
 title(strcat("ZA Cumulative deaths, current: ", num2str(max(deaths))));
 xlabel("days since 30-03-2020");
 figure ();
-semilogy(deaths);
-title("ZA Cumulative deaths (log scale)");
+plot(log2(deaths)); %Plot deaths on a log base 2 scale (easier doubling time measurement)
+yticklabels(2.^yticks()); %Use the right y  ticks
+grid on;
+title("ZA Cumulative deaths (log base 2 scale)");
 xlabel("days since 30-03-2020");
 figure ();
 plot(doublingTime);
